@@ -161,6 +161,10 @@ machine_failure_reasons = [
 # Streamlit UI
 st.title('Machine Failure Prediction')
 
+# Heading for required columns
+st.markdown("### Required Columns in CSV File:")
+st.markdown("id, Product ID, Type, Air temperature [K], Process temperature [K], Rotational speed [rpm], Torque [Nm], Tool wear [min], TWF, HDF, PWF, OSF, RNF")
+
 uploaded_file = st.file_uploader("Upload a CSV file", type="csv")
 
 if uploaded_file is not None:
@@ -181,5 +185,6 @@ if uploaded_file is not None:
     # Download predictions as CSV
     csv = predictions_df.to_csv(index=False)
     st.download_button(label="Download Predictions CSV", data=csv, file_name='predictions.csv', mime='text/csv')
+
 
 
